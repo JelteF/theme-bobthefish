@@ -41,6 +41,7 @@ This theme is based loosely on [agnoster][agnoster].
      * Previous command failed (**`!`**)
      * Background jobs (**`%`**)
      * You currently have superpowers (**`$`**)
+     * Cursor on newline
  * Current vi mode
  * `User@Host` (unless you're the default user)
  * Current RVM, rbenv or chruby (Ruby) version
@@ -81,6 +82,7 @@ set -g theme_display_date no
 set -g theme_display_cmd_duration yes
 set -g theme_title_display_process yes
 set -g theme_title_display_path no
+set -g theme_title_display_user yes
 set -g theme_title_use_abbreviated_path no
 set -g theme_date_format "+%a %H:%M"
 set -g theme_avoid_ambiguous_glyphs yes
@@ -91,22 +93,26 @@ set -g default_user your_normal_user
 set -g theme_color_scheme dark
 set -g fish_prompt_pwd_dir_length 0
 set -g theme_project_dir_length 1
+set -g theme_newline_cursor yes
 ```
 
 **Title options**
 
 - `theme_title_display_process`. By default theme doesn't show current process name in terminal title. If you want to show it, just set to `yes`.
 - `theme_title_display_path`. Use `no` to hide current working directory from title.
+- `theme_title_display_user`. Set to `yes` to show the current user in the tab title (unless you're the default user).
 - `theme_title_use_abbreviated_path`. Default is `yes`. This means your home directory will be displayed as `~` and `/usr/local` as `/u/local`. Set it to `no` if you prefer full paths in title.
 
 **Prompt options**
 
 - `theme_display_ruby`. Use `no` to completely hide all information about Ruby version. By default Ruby version displayed if there is the difference from default settings.
 - `theme_display_vagrant`. This feature is disabled by default, use `yes` to display Vagrant status in your prompt. Please note that only the VirtualBox and VMWare providers are supported.
+- `theme_display_vi`. By default the vi mode indicator will be shown if vi or hybrid key bindings are enabled. Use `no` to hide the indicator, or `yes` to show the indicator.
 - `theme_show_exit_status`. Set this option to yes to have the prompt show the last exit code if it was non_zero instead of just the exclamation mark.
 - `theme_git_worktree_support`. If you do any git worktree shenanigans, setting this to `yes` will fix incorrect project-relative path display. If you don't do any git worktree shenanigans, leave it disabled. It's faster this way :)
 - `fish_prompt_pwd_dir_length`. bobthefish respects the Fish `$fish_prompt_pwd_dir_length` setting to abbreviate the prompt path. Set to `0` to show the full path, `1` (default) to show only the first character of each parent directory name, or any other number to show up to that many characters.
 - `theme_project_dir_length`. The same as `$fish_prompt_pwd_dir_length`, but for the path relative to the current project root. Defaults to `0`; set to any other number to show an abbreviated path.
+- `theme_newline_cursor`. Use `yes` to have cursor start on a new line. By default the prompt is only one line. When working with long directories it may be preferrend to have cursor on the next line.
 
 **Color scheme options**
 
